@@ -3,6 +3,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 
+app.use(cors({
+  origin: ['https://crud-frontend-lilac.vercel.app/', 'http://localhost:3000', 'http://localhost:5173'],
+  credentials: true,
+   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS']
+}));
+
 const mysql = require('mysql2') 
 // const bcrypt = require('bcryptjs');
 const dotenv = require('dotenv')
@@ -12,10 +18,7 @@ app.use(cors());
 
 const cors = require('cors');
 
-app.use(cors({
-  origin: ['https://crud-frontend-lilac.vercel.app/', 'http://localhost:3000'],
-  credentials: true
-}));
+
 
 
 dotenv.config();
