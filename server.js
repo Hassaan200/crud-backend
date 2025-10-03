@@ -10,6 +10,14 @@ const dotenv = require('dotenv')
 app.use(express.json());
 app.use(cors());
 
+const cors = require('cors');
+
+app.use(cors({
+  origin: ['https://crud-frontend-lilac.vercel.app/', 'http://localhost:3000'],
+  credentials: true
+}));
+
+
 dotenv.config();
 
 const PORT = process.env.PORT
@@ -142,3 +150,4 @@ app.listen(PORT, ()=>{
     console.log(`Server is running on http://localhost:${PORT}`);
 })
   
+module.exports = app;
